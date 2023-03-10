@@ -5,14 +5,16 @@
     </head>
     <body>
         <div class="bg">
+            <div id="ocean"></div>
+            <div id="railing"></div>
             <div class="road">
-                <div class="skinny"></div>
-                <div class="car1" id="car2">
+                <div id="skinny"></div>
+                <div class="car" id="car2">
                     <img src="images/car1/car.png" class="body">
                     <img src="images/car1/t2.png" class="tires" id="tire2">
                     <img src="images/car1/t1.png" class="tires" id="tire1">
                 </div>
-                <div class="car1" id="car1">
+                <div class="car" id="car1">
                     <img src="images/car1/car.png" class="body">
                     <img src="images/car1/t2.png" class="tires" id="tire2">
                     <img src="images/car1/t1.png" class="tires" id="tire1">
@@ -20,5 +22,24 @@
                 <div id="thick"></div>
             </div>
         </div>
+        <script> // thanks stackoverflow 
+            (function() { 
+                const classes = document.body.classList;
+                let timer = 0;
+                window.addEventListener('resize', function () {
+                    if (timer) {
+                        clearTimeout(timer);
+                        timer = null;
+                    }
+                    else
+                        classes.add('stop-transitions');
+        
+                    timer = setTimeout(() => {
+                        classes.remove('stop-transitions');
+                        timer = null;
+                    }, 100);
+                });
+            })();
+        </script>
     </body>
 </html>

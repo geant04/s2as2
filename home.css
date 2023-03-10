@@ -1,78 +1,82 @@
 html, body{
     margin: 0;
 }
+body.stop-transitions * {
+    transition: none !important;
+}
+
 .bg{
     width: 100vw;
     height: 100vh;
     background-color: rgb(0, 116, 0);
-    /*background-image: url("images/road/skinny.png");
+}
+#ocean{
+    width: 100%;
+    height: calc(35vh);
+    background-color: grey;
+    background-image: url("images/background/blue.png");
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: repeat-x;
+    image-rendering: pixelated;
+
+    animation: roadmove 15s steps(15) infinite;
+}
+#railing{
+    width: 100%;
+    transform: translateY(0vh);
+    height: calc(5vh);
+    background-color: grey;
+    background-image: url("images/road/railing.png");
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: repeat-x;
+    image-rendering: pixelated;
+    animation: roadmove 0.5s steps(75) infinite;
+}
+.road{
+    position: absolute;
+    transform: translateY(0vh);
+    height: calc(8vh + 15vw);
+    width: 100%;
+    background-color: rgb(42, 42, 42);
+    background-image: url("images/road/chunk.png");
     background-size: auto 100%;
     background-position: center;
     background-repeat: repeat-x;
 
-    height: 3vh;
     image-rendering: pixelated;
-    animation: roadmove 0.25s steps(50) infinite;
-    */
-}
-.road{
-    position: absolute;
-    margin-top: 40%;
-    height: 30%;
-    width: 100%;
-    background-color: rgb(42, 42, 42);
-}
-.skinny{
-    position: relative;
-    background-image: url("images/road/skinny.png");
-    background-size: auto 20%;
-    background-repeat: repeat-x;
-    background-position: center;
-
-    top: -5%;
-    height: 4vh;
-    animation: roadmove 0.8s steps(50) infinite;
-}
-
-#thick{
-    position: relative;
-    background-image: url("images/road/thick.png");
-    background-size: auto 90%;
-    background-repeat: repeat-x;
-    background-position: center;
-
-    height: 3vh;
-    bottom: -10%;
-    animation: roadmove 0.6s steps(50) infinite;
+    animation: roadmove 0.25s steps(25) infinite;
 }
 
 @keyframes roadmove{
     from {background-position-x: 100%;}
     to {background-position-x: 0%;}
 }
-.car1{
+.car{
     position: relative;
-    transition: 5s;
-    top: -10%;
-    width: 50%;
+    top: calc(-1vh + 2vw);
+    width: calc(15vh + 15vw);
     animation: nyoom 10s infinite;
     animation-timing-function: ease;
+    transition: 5s;
 }
 #car2{
     position: relative;
-    top:0%;
+    top: 1vh;
     filter:hue-rotate(200deg);
     animation-delay: 2s;
 }
+
 .body{
     position: relative;
     background-color:whiteblue;
-    width: 100%;
+    width: calc(15vh + 15vw);
     height: auto;
 }
 .tires{
     position: absolute;
-    width: 21%;
+    width: calc(3.2vh + 3.2vw);
 }
 #tire1{
     right: 11%;
@@ -87,11 +91,11 @@ html, body{
 }
 
 @keyframes nyoom{
-    0%{left: 0%;}
-    30%{left: 3%;}
-    50%{left: 2%;}
-    70%{left: 5%;}
-    100%{left: 0%;}
+    0%  {left: calc(0% + 15vw);}
+    30% {left: calc(3% + 15vw);}
+    50% {left: calc(2% + 15vw);}
+    70% {left: calc(5% + 15vw);}
+    100%{left: calc(0% + 15vw);}
 }
 @keyframes nyoom2{
     /* 0%{left: calc(10% + 0%);}
@@ -103,18 +107,18 @@ html, body{
     to{transform: translateX(200px)}
 }
 @keyframes bop{
-    0%{bottom: calc(-3%);}
-    50%{bottom: calc(-3% + 2px);}
-    0%{bottom: calc(-3%);}
+    0%{bottom: calc(-4%);}
+    50%{bottom: calc(-4% + 2px);}
+    0%{bottom: calc(-4%);}
 }
 @keyframes bop2{
-    0%{bottom: calc(-1%) + 2px;}
-    50%{bottom: calc(-1%);}
-    0%{bottom: calc(-1% + 2px);}
+    0%{bottom: calc(-2%) + 2px;}
+    50%{bottom: calc(-2%);}
+    0%{bottom: calc(-2% + 2px);}
 }
-.car1:hover {
+.car:hover {
     transition: 5s;
-    transform: translateX(200px)
+    transform: translateX(20vw)
 }
 
 
