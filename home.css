@@ -61,6 +61,17 @@ body.stop-transitions * {
     image-rendering: pixelated;
     animation: roadmove 0.25s steps(25) infinite;
 }
+.funtext{
+    color:aliceblue;
+    outline-color: black;
+    font-size: calc(30px + 2vh);
+    font-family: Helvetica, sans-serif, monospace;
+    text-align: center;
+}
+#txt{
+    position: relative;
+    animation: hov 4s infinite ease-in-out;
+}
 
 @keyframes roadmove{
     from {background-position-x: 100vw;}
@@ -81,7 +92,6 @@ body.stop-transitions * {
     animation-delay: 2s;
     left: calc(0% + 15vw);
 }
-
 .body{
     position: relative;
     background-color:whiteblue;
@@ -130,13 +140,17 @@ body.stop-transitions * {
     50%{bottom: calc(-2%);}
     0%{bottom: calc(-2% + 2px);}
 }
+
+@keyframes hov{
+    0%{bottom: calc(-10%);}
+    50%{bottom: calc(-15%);}
+    100%{bottom: calc(-10%);}
+}
+
 .car:hover {
     transition: 5s;
     transform: translateX(20vw)
 }
-
-
-
 
 img {
     image-rendering: pixelated;
